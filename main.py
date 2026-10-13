@@ -10,6 +10,7 @@ from src.divisao_dados import dividir_dados
 from src.preprocessamento import criar_preprocessador, testar_preprocessamento, validar_preprocessador
 from src.carregamento import carregar_dados
 from src.balanceamento import analisar_balanceamento
+from src.escalonamento import preparar_dados_modelos
 
 caminho_dataset = "data/manutencao_preditiva.csv"
 
@@ -43,3 +44,11 @@ testar_preprocessamento(
 
 # Fase 4 - Análise do balanceamento
 analisar_balanceamento(y_train)
+
+# Fase 5 - Escalonamento das variáveis
+(
+    X_train_knn,
+    X_test_knn,
+    X_train_arvore,
+    X_test_arvore
+) = preparar_dados_modelos(X_train, X_test)
