@@ -11,6 +11,9 @@ from src.preprocessamento import criar_preprocessador, testar_preprocessamento, 
 from src.carregamento import carregar_dados
 from src.balanceamento import analisar_balanceamento
 from src.escalonamento import preparar_dados_modelos
+from src.treinamento_knn import treinar_knn
+from src.treinamento_arvore import treinar_arvore
+from src.avaliacao_modelos import avaliar_modelos, comparar_modelos
 
 caminho_dataset = "data/manutencao_preditiva.csv"
 
@@ -52,3 +55,24 @@ analisar_balanceamento(y_train)
     X_train_arvore,
     X_test_arvore
 ) = preparar_dados_modelos(X_train, X_test)
+
+# Fase 6 — Treinamento e ajuste de parâmetros
+
+melhor_knn, resultados_knn = treinar_knn(
+    X_train, X_test, y_train, y_test
+)
+
+melhor_arvore, resultados_arvore = treinar_arvore(
+    X_train, X_test, y_train, y_test
+)
+
+# Fase 7 — Avaliação final
+
+resultados_finais = avaliar_modelos(
+    melhor_knn,
+    melhor_arvore,
+    X_test,
+    y_test
+)
+
+comparar_modelos(resultados_finais)
