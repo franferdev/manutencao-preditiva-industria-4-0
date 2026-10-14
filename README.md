@@ -348,7 +348,7 @@ A verificação com e sem a diferença de temperatura compara o pré-processamen
 
 ## Vídeo de apresentação
 
-Link da apresentação: **a adicionar**.
+Link da apresentação: https://drive.google.com/file/d/172aMrm1Tkb6MJbf8pJqQCcclIlvRdMkO/view?usp=sharing
 
 ---
 
